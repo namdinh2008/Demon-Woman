@@ -1,0 +1,6 @@
+/* src/components/Piano.css */
+.piano {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
