@@ -1,9 +1,11 @@
-// PianoKey.jsx (example component for a single piano key)
-
+// src/components/Key.js
 import React, { useState } from "react";
-import "./PianoKey.css"; // Add CSS for visual feedback
 
-const PianoKey = ({ note, playNote }) => {
+import "./PianoKey.css";
+
+const PianoKey = ({ note, playNote}) => {
+  
+
   const [isPressed, setIsPressed] = useState(false); // State to track if the key is pressed
 
   const handleMouseDown = () => {
@@ -15,25 +17,22 @@ const PianoKey = ({ note, playNote }) => {
     setIsPressed(false); // Set key as not pressed
   };
 
-  const handleTouchStart = () => {
-    setIsPressed(true);
-    playNote(note);
-  };
-
-  const handleTouchEnd = () => {
-    setIsPressed(false);
-  };
-
   return (
     <div
       className={`piano-key ${isPressed ? "pressed" : ""}`} // Add 'pressed' class if key is pressed
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp} // Handle case where the mouse leaves the key while pressed
-      onTouchStart={handleTouchStart} // Handle touch start
-      onTouchEnd={handleTouchEnd} // Handle touch end
     >
-      {/* Key content */}
+      <div
+        className={`key ${playNote}`}
+        onClick={playNote}
+        role="button"
+        tabIndex="0"
+        onKeyDown={(e) => e.key === note[0].toLowerCase() && playNote()}
+      >
+        {note}
+      </div>
     </div>
   );
 };
