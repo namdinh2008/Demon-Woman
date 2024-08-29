@@ -1,0 +1,16 @@
+/* PianoKey.css */
+
+.piano-key {
+    width: 50px; /* Example size */
+    height: 150px; /* Example size */
+    background-color: white; /* Default key color */
+    border: 1px solid #ccc;
+    transition: background-color 0.1s ease, transform 0.1s ease; /* Smooth transition */
+  }
+  
+  .piano-key.pressed {
+    background-color: #f0e68c; /* Highlight color when key is pressed */
+    transform: scale(0.95); /* Slightly shrink the key */
+    box-shadow: 0 0 10px #f0e68c; /* Optional glow effect */
+  }
+  
